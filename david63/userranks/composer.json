@@ -3,9 +3,14 @@
 	"type": "phpbb-extension",
 	"description": "Displays a list of user ranks and the members in that rank.",
 	"homepage": "",
-	"version": "1.0.0-b1",
-	"time": "2015-03-06",
-		"keywords": ["phpbb", "extension", "user", "rank"],
+	"version": "1.0.0",
+	"time": "2015-05-16",
+	"keywords": [
+		"phpbb",
+		"extension",
+		"user",
+		"rank"
+	],
 	"license": "GPL-2.0",
 	"authors": [{
 			"name": "David Wood",
@@ -21,12 +26,7 @@
 	"extra": {
 		"display-name": "User ranks list",
 		"soft-require": {
-			"phpbb/phpbb": ">=3.1.3,<3.2.*@dev"
-      },
-		"version-check": {
-				"host": "webworld.xyz",
-			"directory": "/versioncheck",
-			"filename": "userranks_versions.json"
+			"phpbb/phpbb": ">=3.1.4,<3.2.*@dev"
 		}
 	}
 }

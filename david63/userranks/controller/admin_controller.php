@@ -42,7 +42,6 @@ class admin_controller implements admin_interface
 	* @param \phpbb\template\template	$template	Template object
 	* @param \phpbb\user				$user		User object
 	* @param ContainerInterface			$container	Service container interface
-	* @return \phpbb\boardrules\controller\admin_controller
 	* @access public
 	*/
 	public function __construct(\phpbb\config\config $config, \phpbb\request\request $request, \phpbb\template\template $template, \phpbb\user $user, ContainerInterface $container)
@@ -85,7 +84,7 @@ class admin_controller implements admin_interface
 
 			// Option settings have been updated and logged
 			// Confirm this to the user and provide link back to previous page
-			trigger_error($this->user->lang['CONFIG_UPDATED'] . adm_back_link($this->u_action));
+			trigger_error($this->user->lang('CONFIG_UPDATED') . adm_back_link($this->u_action));
 		}
 
 		// Set output vars for display in the template

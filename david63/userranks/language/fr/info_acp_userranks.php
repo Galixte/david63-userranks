@@ -41,8 +41,8 @@ if (empty($lang) || !is_array($lang))
 $lang = array_merge($lang, array(
 	'USER_RANKS'						=> 'Rangs des utilisateurs',
 
-	'USER_RANKS_BOTS'					=> 'Ignorer les robots',
-	'USER_RANKS_BOTS_EXPLAIN'			=> 'Permet de ne pas inclure les robots dans la liste des rangs des utilisateurs.',
+	'USER_RANKS_BOTS'					=> 'Ignorer les robots et les invités',
+	'USER_RANKS_BOTS_EXPLAIN'			=> 'Permet de ne pas inclure les robots et les invités dans la liste des rangs des utilisateurs.',
 
 	'USER_RANKS_ENABLE'					=> 'Afficher les rangs des utilisateurs',
 	'USER_RANKS_ENABLE_EXPLAIN'			=> 'Active l’affichage des rangs des utilisateurs.',

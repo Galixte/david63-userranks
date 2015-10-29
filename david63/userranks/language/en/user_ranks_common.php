@@ -45,7 +45,7 @@ $lang = array_merge($lang, array(
 	'RANK_MINIMUM'		=> 'Minimum posts',
 
 	'USER_RANKS'		=> 'User ranks',
-	//'USER_RANKS_LOG'	=> '<strong>User ranks settings updated</strong>',
+
 	'USER_RANKS_TITLE'	=> 'User ranks list',
 
 	'RANK_TITLE'		=> 'Rank title',

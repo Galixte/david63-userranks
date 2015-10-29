@@ -3,7 +3,7 @@
 	"type": "phpbb-extension",
 	"description": "Displays a list of user ranks and the members in that rank.",
 	"homepage": "",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"time": "2015-05-16",
 	"keywords": [
 		"phpbb",

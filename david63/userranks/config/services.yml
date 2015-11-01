@@ -28,4 +28,4 @@ services:
             - @request
             - @template
             - @user
-            - @service_container
+            - @log

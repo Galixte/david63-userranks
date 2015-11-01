@@ -29,7 +29,7 @@ class admin_controller implements admin_interface
 	protected $user;
 
 	/** @var ContainerInterface */
-	protected $container;
+	protected $log;
 
 	/** @var string Custom form action */
 	protected $u_action;
@@ -41,16 +41,16 @@ class admin_controller implements admin_interface
 	* @param \phpbb\request\request		$request	Request object
 	* @param \phpbb\template\template	$template	Template object
 	* @param \phpbb\user				$user		User object
-	* @param ContainerInterface			$container	Service container interface
+	* @param \phpbb\log\log				$log
 	* @access public
 	*/
-	public function __construct(\phpbb\config\config $config, \phpbb\request\request $request, \phpbb\template\template $template, \phpbb\user $user, ContainerInterface $container)
+	public function __construct(\phpbb\config\config $config, \phpbb\request\request $request, \phpbb\template\template $template, \phpbb\user $user, \phpbb\log\log $log)
 	{
-		$this->config		= $config;
-		$this->request		= $request;
-		$this->template		= $template;
-		$this->user			= $user;
-		$this->container	= $container;
+		$this->config	= $config;
+		$this->request	= $request;
+		$this->template	= $template;
+		$this->user		= $user;
+		$this->log		= $log;
 	}
 
 	/**
@@ -79,8 +79,7 @@ class admin_controller implements admin_interface
 			$this->set_options();
 
 			// Add option settings change action to the admin log
-			$phpbb_log = $this->container->get('log');
-			$phpbb_log->add('admin', $this->user->data['user_id'], $this->user->ip, 'USER_RANKS_LOG');
+			$this->log->add('admin', $this->user->data['user_id'], $this->user->ip, 'USER_RANKS_LOG');
 
 			// Option settings have been updated and logged
 			// Confirm this to the user and provide link back to previous page
@@ -97,7 +96,7 @@ class admin_controller implements admin_interface
 			'USER_RANKS_SPECIAL' 		=> isset($this->config['userranks_special']) ? $this->config['userranks_special'] : '',
 			'USER_RANKS_SPECIAL_ADMIN'	=> isset($this->config['userranks_special_admin']) ? $this->config['userranks_special_admin'] : '',
 
-			'U_ACTION' => $this->u_action,
+			'U_ACTION' 					=> $this->u_action,
 		));
 	}
 

@@ -17,7 +17,7 @@ class main_controller implements main_interface
 	/** @var \phpbb\config\config */
 	protected $config;
 
-	/** @var \phpbb\template\twig\twig */
+	/** @var \phpbb\template\template */
 	protected $template;
 
 	/** @var \phpbb\user */
@@ -42,7 +42,7 @@ class main_controller implements main_interface
 	* Constructor for main controller
 	*
 	* @param \phpbb\config\config				$config		Config object
-	* @param \phpbb\template\twig\twig			$template	Template object
+	* @param \phpbb\template\template			$template	Template object
 	* @param \phpbb\user                		$user		User object
 	* @param \phpbb\db\driver\driver_interface	$db
 	* @param \phpbb\controller\helper			$controller_helper  Controller helper object
@@ -51,7 +51,7 @@ class main_controller implements main_interface
 	* @param \phpbb\auth\auth 					$auth
 	* @access public
 	*/
-	public function __construct(\phpbb\config\config $config, \phpbb\template\twig\twig $template, \phpbb\user $user, \phpbb\db\driver\driver_interface $db, \phpbb\controller\helper $helper, \phpbb\path_helper $path_helper, \phpbb\cache\service $cache, \phpbb\auth\auth $auth)
+	public function __construct(\phpbb\config\config $config, \phpbb\template\template $template, \phpbb\user $user, \phpbb\db\driver\driver_interface $db, \phpbb\controller\helper $helper, \phpbb\path_helper $path_helper, \phpbb\cache\service $cache, \phpbb\auth\auth $auth)
 	{
 		$this->config		= $config;
 		$this->template		= $template;

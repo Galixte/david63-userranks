@@ -35,12 +35,12 @@ class listener implements EventSubscriberInterface
 	* Constructor for listener
 	*
 	* @param \phpbb\config\config		$config				Config object
-	* @param \phpbb\template\twig\twig	$template			Template object
+	* @param \phpbb\template\template	$template			Template object
 	* @param \phpbb\controller\helper	$controller_helper	Controller helper object
 	* @param \phpbb\auth\auth 			$auth
 	* @access public
 	*/
-	public function __construct(\phpbb\config\config $config, \phpbb\template\twig\twig $template, \phpbb\controller\helper $controller_helper, \phpbb\auth\auth $auth)
+	public function __construct(\phpbb\config\config $config, \phpbb\template\template $template, \phpbb\controller\helper $controller_helper, \phpbb\auth\auth $auth)
 	{
 		$this->config				= $config;
 		$this->template				= $template;

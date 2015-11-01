@@ -3,8 +3,8 @@
 	"type": "phpbb-extension",
 	"description": "Displays a list of user ranks and the members in that rank.",
 	"homepage": "",
-	"version": "1.0.1",
-	"time": "2015-05-16",
+	"version": "1.0.2",
+	"time": "2015-11-01",
 	"keywords": [
 		"phpbb",
 		"extension",
@@ -15,8 +15,8 @@
 	"authors": [{
 			"name": "David Wood",
 			"username": "david63",
-			"email": "david@webworld.xyz",
-			"homepage": "http://webworld.xyz",
+			"email": "",
+			"homepage": "",
 			"role": "Developer"
 		}],
 	"require": {

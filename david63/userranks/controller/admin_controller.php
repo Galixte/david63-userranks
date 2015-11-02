@@ -11,6 +11,8 @@ namespace david63\userranks\controller;
 
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
+use david63\userranks\ext;
+
 /**
 * Admin controller
 */
@@ -95,6 +97,7 @@ class admin_controller implements admin_interface
 			'USER_RANKS_MEMBERS_ADMIN'	=> isset($this->config['userranks_members_admin']) ? $this->config['userranks_members_admin'] : '',
 			'USER_RANKS_SPECIAL' 		=> isset($this->config['userranks_special']) ? $this->config['userranks_special'] : '',
 			'USER_RANKS_SPECIAL_ADMIN'	=> isset($this->config['userranks_special_admin']) ? $this->config['userranks_special_admin'] : '',
+			'USER_RANKS_VERSION'		=> ext::USER_RANKS_VERSION,
 
 			'U_ACTION' 					=> $this->u_action,
 		));

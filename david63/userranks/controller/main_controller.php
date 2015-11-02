@@ -9,6 +9,8 @@
 
 namespace david63\userranks\controller;
 
+use david63\userranks\ext;
+
 /**
 * Main controller
 */
@@ -122,6 +124,8 @@ class main_controller implements main_interface
 			'U_VIEW_FORUM'	=> $this->helper->route('david63_userranks_main_controller', array('name' => 'ranks')),
 			'FORUM_NAME'	=> $this->user->lang('USER_RANKS'),
 		));
+
+		$this->template->assign_var('USER_RANKS_VERSION', ext::USER_RANKS_VERSION);
 
 		// Send all data to the template file
 		return $this->helper->render('user_ranks.html', $name);

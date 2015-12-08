@@ -44,9 +44,9 @@ $lang = array_merge($lang, array(
 	'RANK_MEMBERS'		=> 'Membri livello',
 	'RANK_MINIMUM'		=> 'Numero minimo messaggi',
 
-	'USER_RANKS'		=> 'Utenti per livello',
+	'USER_RANKS'		=> 'Livelli',
 	//'USER_RANKS_LOG'	=> '<strong>Impostazioni Utenti per livello aggiornate</strong>',
-	'USER_RANKS_TITLE'	=> 'Elenco utenti per livello',
+	'USER_RANKS_TITLE'	=> 'Elenco livelli utente',
 
 	'RANK_TITLE'		=> 'Titolo livello',
 ));

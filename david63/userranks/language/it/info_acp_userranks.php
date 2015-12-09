@@ -37,18 +37,18 @@ if (empty($lang) || !is_array($lang))
 //
 
 $lang = array_merge($lang, array(
-	'USER_RANKS'						=> 'Utenti per livello',
+	'USER_RANKS'						=> 'Livelli utente',
 
 	'USER_RANKS_BOTS'					=> 'Escludi bot',
 	'USER_RANKS_BOTS_EXPLAIN'			=> 'Non includere i bot nell’elenco dei membri del livello.',
 
-	'USER_RANKS_ENABLE'					=> 'Abilita Utenti per livello',
+	'USER_RANKS_ENABLE'					=> 'Abilita Livelli utente',
 	'USER_RANKS_ENABLE_EXPLAIN'			=> 'Permette la visualizzazione dell’elenco utenti per livello.',
 	'USER_RANKS_EXPLAIN'				=> 'Qui è possibile gestire le opzioni di visualizzazione dell’elenco utenti per livello.',
 
 	'USER_RANKS_HEADER'					=> 'Link elenco in header',
 
-	'USER_RANKS_LOG'					=> '<strong>Impostazioni per Utenti per livello aggiornate</strong>',
+	'USER_RANKS_LOG'					=> '<strong>Impostazioni per Livelli utente aggiornate</strong>',
 
 	'USER_RANKS_MANAGE'					=> 'Impostazioni',
 	'USER_RANKS_MEMBERS'				=> 'Mostra membri',

@@ -1,0 +1,70 @@
+{% include 'overall_header.html' %}
+{% INCLUDECSS '@david63_userranks/version.css' %}
+
+<h1>{{ lang('USER_RANKS') }}</h1>
+<p>{{ lang('USER_RANKS_EXPLAIN') }}</p>
+
+<form id="userranks" method="post" action="{U_ACTION}">
+
+	<fieldset>
+		<legend>{{ lang('USER_RANKS_OPTIONS') }}</legend>
+
+		<dl>
+			<dt><label for="version">{{ lang('VERSION') }}{{ lang('COLON') }}</label><span class="version">{USER_RANKS_VERSION}</span></dt>
+		</dl>
+
+		<dl>
+			<dt><label for="userranks_enable">{{ lang('USER_RANKS_ENABLE') }}{{ lang('COLON') }}</label><br /><span>{{ lang('USER_RANKS_ENABLE_EXPLAIN') }}</span></dt>
+			<dd><label><input type="radio" class="radio" name="userranks_enable" value="1" id="userranks_enable"{% if USER_RANKS_ENABLED %} checked="checked"{% endif %}/> {{ lang('ENABLE') }}</label>
+				<label><input type="radio" class="radio" name="userranks_enable" value="0" {% if not USER_RANKS_ENABLED %} checked="checked"{% endif %} /> {{ lang('DISABLE') }}</label></dd>
+		</dl>
+
+		<dl>
+			<dt><label for="userranks_header_link">{{ lang('USER_RANKS_HEADER') }}{{ lang('COLON') }}</label></dt>
+			<dd><label><input type="radio" class="radio" name="userranks_header_link" value="1" id="userranks_header_link"{% if USER_RANKS_HEADER %} checked="checked"{% endif %}/> {{ lang('YES') }}</label>
+				<label><input type="radio" class="radio" name="userranks_header_link" value="0" {% if not USER_RANKS_HEADER %} checked="checked"{% endif %} /> {{ lang('NO') }}</label></dd>
+		</dl>
+
+		<dl>
+			<dt><label for="userranks_members">{{ lang('USER_RANKS_MEMBERS') }}{{ lang('COLON') }}</label><br /><span>{{ lang('USER_RANKS_MEMBERS_EXPLAIN') }}</span></dt>
+			<dd><label><input type="radio" class="radio" name="userranks_members" value="1" id="userranks_members"{% if USER_RANKS_MEMBERS %} checked="checked"{% endif %}/> {{ lang('YES') }}</label>
+				<label><input type="radio" class="radio" name="userranks_members" value="0" {% if not USER_RANKS_MEMBERS %} checked="checked"{% endif %} /> {{ lang('NO') }}</label></dd>
+		</dl>
+
+		<dl>
+			<dt><label for="userranks_special">{{ lang('USER_RANKS_SPECIAL') }}{{ lang('COLON') }}</label><br /><span>{{ lang('USER_RANKS_SPECIAL_EXPLAIN') }}</span></dt>
+			<dd><label><input type="radio" class="radio" name="userranks_special" value="1" id="userranks_special"{% if USER_RANKS_SPECIAL %} checked="checked"{% endif %}/> {{ lang('YES') }}</label>
+				<label><input type="radio" class="radio" name="userranks_special" value="0" {% if not USER_RANKS_SPECIAL %} checked="checked"{% endif %} /> {{ lang('NO') }}</label></dd>
+		</dl>
+
+		<dl>
+			<dt><label for="userranks_ignore_bots">{{ lang('USER_RANKS_BOTS') }}{{ lang('COLON') }}</label><br /><span>{{ lang('USER_RANKS_BOTS_EXPLAIN') }}</span></dt>
+			<dd><label><input type="radio" class="radio" name="userranks_ignore_bots" value="1" id="userranks_ignore_bots"{% if USER_RANKS_BOTS %} checked="checked"{% endif %}/> {{ lang('YES') }}</label>
+				<label><input type="radio" class="radio" name="userranks_ignore_bots" value="0" {% if not USER_RANKS_BOTS %} checked="checked"{% endif %} /> {{ lang('NO') }}</label></dd>
+		</dl>
+
+		<dl>
+			<dt><label for="userranks_members_admin">{{ lang('USER_RANKS_MEMBERS_ADMIN') }}{{ lang('COLON') }}</label><br /><span>{{ lang('USER_RANKS_MEMBERS_ADMIN_EXPLAIN') }}</span></dt>
+			<dd><label><input type="radio" class="radio" name="userranks_members_admin" value="1" id="userranks_members_admin"{% if USER_RANKS_MEMBERS_ADMIN %} checked="checked"{% endif %}/> {{ lang('YES') }}</label>
+				<label><input type="radio" class="radio" name="userranks_members_admin" value="0" {% if not USER_RANKS_MEMBERS_ADMIN %} checked="checked"{% endif %} /> {{ lang('NO') }}</label></dd>
+		</dl>
+
+		<dl>
+			<dt><label for="userranks_special_admin">{{ lang('USER_RANKS_SPECIAL_ADMIN') }}{{ lang('COLON') }}</label><br /><span>{{ lang('USER_RANKS_SPECIAL_ADMIN_EXPLAIN') }}</span></dt>
+			<dd><label><input type="radio" class="radio" name="userranks_special_admin" value="1" id="userranks_special_admin"{% if USER_RANKS_SPECIAL_ADMIN %} checked="checked"{% endif %}/> {{ lang('YES') }}</label>
+				<label><input type="radio" class="radio" name="userranks_special_admin" value="0" {% if not USER_RANKS_SPECIAL_ADMIN %} checked="checked"{% endif %} /> {{ lang('NO') }}</label></dd>
+		</dl>
+
+	</fieldset>
+
+	<fieldset>
+		<legend>{{ lang('ACP_SUBMIT_CHANGES') }}</legend>
+		<p class="submit-buttons">
+			<input class="button1" type="submit" id="submit" name="submit" value="{{ lang('SUBMIT') }}" />&nbsp;
+			<input class="button2" type="reset" id="reset" name="reset" value="{{ lang('RESET') }}" />
+		</p>
+		{S_FORM_TOKEN}
+	</fieldset>
+</form>
+
+{% include 'overall_footer.html' %}

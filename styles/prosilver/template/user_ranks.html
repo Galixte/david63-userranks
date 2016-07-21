@@ -1,8 +1,10 @@
 {% include 'overall_header.html' %}
+{% INCLUDECSS '@david63_userranks/user_ranks.css' %}
 
 {% if S_USER_RANKS_LINK_ENABLED and S_USER_LOGGED_IN and not S_IS_BOT %}
 	<h2>{{ lang('USER_RANKS') }}</h2>
-	{USER_RANKS_VERSION}<br /><br />
+	<span class="version_name">{{ lang('VERSION') }}{{ lang('COLON') }}</span><span class="version">{USER_RANKS_VERSION}</span>
+	<br /><br />
 
 	<div class="forabg responsive-hide">
 		<div class="inner">

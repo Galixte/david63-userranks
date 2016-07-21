@@ -5,13 +5,10 @@
 <p>{{ lang('USER_RANKS_EXPLAIN') }}</p>
 
 <form id="userranks" method="post" action="{U_ACTION}">
+<span class="version_name">{{ lang('VERSION') }}{{ lang('COLON') }}</span><span class="version">{USER_RANKS_VERSION}</span>
 
 	<fieldset>
 		<legend>{{ lang('USER_RANKS_OPTIONS') }}</legend>
-
-		<dl>
-			<dt><label for="version">{{ lang('VERSION') }}{{ lang('COLON') }}</label><span class="version">{USER_RANKS_VERSION}</span></dt>
-		</dl>
 
 		<dl>
 			<dt><label for="userranks_enable">{{ lang('USER_RANKS_ENABLE') }}{{ lang('COLON') }}</label><br /><span>{{ lang('USER_RANKS_ENABLE_EXPLAIN') }}</span></dt>

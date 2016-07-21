@@ -57,4 +57,6 @@ $lang = array_merge($lang, array(
 	'USER_RANKS_SPECIAL_ADMIN'			=> 'Show special ranks to admins',
 	'USER_RANKS_SPECIAL_ADMIN_EXPLAIN'	=> 'Only show special ranks to Admins.',
 	'USER_RANKS_SPECIAL_EXPLAIN'		=> 'Show the special ranks on the User Ranks list to all logged in users.',
+
+	'VERSION'							=> 'Version',
 ));

@@ -10,29 +10,35 @@
 namespace david63\userranks\controller;
 
 use Symfony\Component\DependencyInjection\ContainerInterface;
-use david63\userranks\ext;
+use \phpbb\config\config;
+use \phpbb\request\request;
+use \phpbb\template\template;
+use \phpbb\user;
+use \phpbb\log\log;
+use \phpbb\language\language;
+use \david63\userranks\ext;
 
 /**
 * Admin controller
 */
 class admin_controller implements admin_interface
 {
-	/** @var \phpbb\config\config */
+	/** @var config */
 	protected $config;
 
-	/** @var \phpbb\request\request */
+	/** @var request */
 	protected $request;
 
-	/** @var \phpbb\template\template */
+	/** @var template */
 	protected $template;
 
-	/** @var \phpbb\user */
+	/** @var user */
 	protected $user;
 
-	/** @var ContainerInterface */
+	/** @var log */
 	protected $log;
 
-	/** @var phpbb\language\language */
+	/** @var language */
 	protected $language;
 
 	/** @var string Custom form action */
@@ -41,15 +47,15 @@ class admin_controller implements admin_interface
 	/**
 	* Constructor for admin controller
 	*
-	* @param \phpbb\config\config		$config		Config object
-	* @param \phpbb\request\request		$request	Request object
-	* @param \phpbb\template\template	$template	Template object
-	* @param \phpbb\user				$user		User object
-	* @param \phpbb\log\log				$log
-	* @param phpbb\language\language	$language
+	* @param config		$config		Config object
+	* @param request	$request	Request object
+	* @param template	$template	Template object
+	* @param user		$user		User object
+	* @param log		$log		Log object
+	* @param language	$language	Language object
 	* @access public
 	*/
-	public function __construct(\phpbb\config\config $config, \phpbb\request\request $request, \phpbb\template\template $template, \phpbb\user $user, \phpbb\log\log $log, \phpbb\language\language $language)
+	public function __construct(config $config, request $request, template $template, user $user, log $log, language $language)
 	{
 		$this->config	= $config;
 		$this->request	= $request;
@@ -98,10 +104,10 @@ class admin_controller implements admin_interface
 		// Set output vars for display in the template
 		$this->template->assign_vars(array(
 			'USER_RANKS_BOTS'			=> isset($this->config['userranks_ignore_bots']) ? $this->config['userranks_ignore_bots'] : '',
-			'USER_RANKS_ENABLED' 		=> isset($this->config['userranks_enable']) ? $this->config['userranks_enable'] : '',
 			'USER_RANKS_HEADER'			=> isset($this->config['userranks_header_link']) ? $this->config['userranks_header_link'] : '',
 			'USER_RANKS_MEMBERS' 		=> isset($this->config['userranks_members']) ? $this->config['userranks_members'] : '',
 			'USER_RANKS_MEMBERS_ADMIN'	=> isset($this->config['userranks_members_admin']) ? $this->config['userranks_members_admin'] : '',
+			'USER_RANKS_QUICK_LINK'		=> isset($this->config['userranks_quick_link']) ? $this->config['userranks_quick_link'] : '',
 			'USER_RANKS_SPECIAL' 		=> isset($this->config['userranks_special']) ? $this->config['userranks_special'] : '',
 			'USER_RANKS_SPECIAL_ADMIN'	=> isset($this->config['userranks_special_admin']) ? $this->config['userranks_special_admin'] : '',
 			'USER_RANKS_VERSION'		=> ext::USER_RANKS_VERSION,
@@ -118,11 +124,11 @@ class admin_controller implements admin_interface
 	*/
 	protected function set_options()
 	{
-		$this->config->set('userranks_enable', $this->request->variable('userranks_enable', 0));
 		$this->config->set('userranks_header_link', $this->request->variable('userranks_header_link', 0));
 		$this->config->set('userranks_ignore_bots', $this->request->variable('userranks_ignore_bots', 0));
 		$this->config->set('userranks_members', $this->request->variable('userranks_members', 0));
 		$this->config->set('userranks_members_admin', $this->request->variable('userranks_members_admin', 0));
+		$this->config->set('userranks_quick_link', $this->request->variable('userranks_quick_link', 0));
 		$this->config->set('userranks_special', $this->request->variable('userranks_special', 0));
 		$this->config->set('userranks_special_admin', $this->request->variable('userranks_special_admin', 0));
 	}

@@ -40,8 +40,6 @@ $lang = array_merge($lang, array(
 	'USER_RANKS_BOTS'					=> 'Ignore bots & anonymous',
 	'USER_RANKS_BOTS_EXPLAIN'			=> 'Do not include Bots & anonymous in the list of rank members.',
 
-	'USER_RANKS_ENABLE'					=> 'Enable User Ranks',
-	'USER_RANKS_ENABLE_EXPLAIN'			=> 'Enable the display of user ranks.',
 	'USER_RANKS_EXPLAIN'				=> 'Here you can manage the User Rank list display options.',
 
 	'USER_RANKS_HEADER'					=> 'Display user ranks link in the header',
@@ -52,6 +50,8 @@ $lang = array_merge($lang, array(
 	'USER_RANKS_MEMBERS_EXPLAIN'		=> 'Show the members who are in each rank on the User Ranks list to all logged in users.',
 
 	'USER_RANKS_OPTIONS'				=> 'User rank options',
+
+	'USER_RANKS_QUICK_LINK'				=> 'Display user ranks link in the quick links menu',
 
 	'USER_RANKS_SPECIAL'				=> 'Show special ranks',
 	'USER_RANKS_SPECIAL_ADMIN'			=> 'Show special ranks to admins',

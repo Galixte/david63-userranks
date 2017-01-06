@@ -13,6 +13,10 @@ namespace david63\userranks\event;
 * @ignore
 */
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
+use \phpbb\config\config;
+use \phpbb\template\template;
+use \phpbb\controller\helper;
+use \phpbb\auth\auth;
 
 /**
 * Event listener
@@ -37,10 +41,10 @@ class listener implements EventSubscriberInterface
 	* @param \phpbb\config\config		$config				Config object
 	* @param \phpbb\template\template	$template			Template object
 	* @param \phpbb\controller\helper	$controller_helper	Controller helper object
-	* @param \phpbb\auth\auth 			$auth
+	* @param \phpbb\auth\auth 			$auth				Auth object
 	* @access public
 	*/
-	public function __construct(\phpbb\config\config $config, \phpbb\template\template $template, \phpbb\controller\helper $controller_helper, \phpbb\auth\auth $auth)
+	public function __construct(config $config, template $template, helper $controller_helper, auth $auth)
 	{
 		$this->config				= $config;
 		$this->template				= $template;
@@ -91,11 +95,11 @@ class listener implements EventSubscriberInterface
 	public function page_header($event)
 	{
 		$this->template->assign_vars(array(
-			'S_USER_RANKS'				=> $this->config ['userranks_enable'],
-			'S_USER_RANKS_LINK_ENABLED'	=> $this->config ['userranks_header_link'],
+			'S_USER_RANKS_LINK_ENABLED'			=> $this->config ['userranks_header_link'],
+			'S_USER_RANKS_QUICK_LINK_ENABLED'	=> $this->config ['userranks_quick_link'],
 
-			'U_USER_RANKS' 				=> $this->controller_helper->route('david63_userranks_main_controller', array('name' => 'ranks')),
-			'U_USER_RANKS_MEMBERS'		=> $this->config['userranks_members'] || ($this->config['userranks_members_admin'] && $this->auth->acl_get('a_')),
+			'U_USER_RANKS' 						=> $this->controller_helper->route('david63_userranks_main_controller', array('name' => 'ranks')),
+			'U_USER_RANKS_MEMBERS'				=> $this->config['userranks_members'] || ($this->config['userranks_members_admin'] && $this->auth->acl_get('a_')),
 		));
 	}
 

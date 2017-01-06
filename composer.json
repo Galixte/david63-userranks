@@ -3,7 +3,7 @@
 	"type": "phpbb-extension",
 	"description": "Displays a list of user ranks and the members in that rank.",
 	"version": "2.1.0",
-	"time": "2015-11-01",
+	"time": "2017-01-06",
 	"keywords": [
 		"phpbb",
 		"extension",
@@ -16,14 +16,14 @@
 			"role": "Developer"
 		}],
 	"require": {
-        "php": ">=5.4,<7.1",
-		"phpbb/phpbb": ">=3.2.0-RC1",
+        "php": ">=5.4.0",
+		"phpbb/phpbb": ">=3.2.0",
         "composer/installers": "~1.0"
     },
 	"extra": {
-		"display-name": "User ranks list",
+		"display-name": "User ranks list (3.2)",
 		"soft-require": {
-			"phpbb/phpbb": ">=3.2.0-RC1"
+			"phpbb/phpbb": ">=3.2.0"
 		}
 	}
 }

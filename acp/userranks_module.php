@@ -15,10 +15,10 @@ class userranks_module
 
 	function main($id, $mode)
 	{
-		global $phpbb_container, $user;
+		global $phpbb_container;
 
 		$this->tpl_name		= 'userranks_manage';
-		$this->page_title	= $user->lang('USER_RANKS');
+		$this->page_title	= $phpbb_container->get('language')->lang('USER_RANKS');
 
 		// Get an instance of the admin controller
 		$admin_controller = $phpbb_container->get('david63.userranks.admin.controller');

@@ -8,8 +8,9 @@
 */
 
 namespace david63\userranks\migrations;
+use \phpbb\db\migration\migration;
 
-class version_2_1_0 extends \phpbb\db\migration\migration
+class version_2_1_0 extends migration
 {
 	static public function depends_on()
 	{
@@ -19,6 +20,9 @@ class version_2_1_0 extends \phpbb\db\migration\migration
 	public function update_data()
 	{
 		return array(
+			array('config.add', array('userranks_quick_link', '1')),
+
+			array('config.remove', array('userranks_enable')),
 			array('config.remove', array('userranks_version')),
 		);
 	}

@@ -8,51 +8,61 @@
 */
 
 namespace david63\userranks\controller;
-use david63\userranks\ext;
+
+use \phpbb\config\config;
+use \phpbb\template\template;
+use \phpbb\db\driver\driver_interface;
+use \phpbb\controller\helper;
+use \phpbb\path_helper;
+use \phpbb\cache\service;
+use \phpbb\auth\auth;
+use \phpbb\language\language;
+use \david63\userranks\ext;
 
 /**
 * Main controller
 */
 class main_controller implements main_interface
 {
-	/** @var \phpbb\config\config */
+	/** @var config */
 	protected $config;
 
-	/** @var \phpbb\template\template */
+	/** @var template */
 	protected $template;
 
-	/** @var \phpbb\db\driver\driver_interface */
+	/** @var driver_interface */
 	protected $db;
 
-	/** @var \phpbb\controller\helper */
+	/** @var helper */
 	protected $controller_helper;
 
-	/** @var \phpbb\path_helper */
+	/** @var path_helper */
 	protected $path_helper;
 
-	/** @var \phpbb\cache\service */
+	/** @var service */
 	protected $cache;
 
-	/** @var \phpbb\auth\auth */
+	/** @var auth */
 	protected $auth;
 
-	/** @var phpbb\language\language */
+	/** @var language */
 	protected $language;
 
 	/**
 	* Constructor for main controller
 	*
-	* @param \phpbb\config\config				$config		Config object
-	* @param \phpbb\template\template			$template	Template object
-	* @param \phpbb\db\driver\driver_interface	$db
-	* @param \phpbb\controller\helper			$controller_helper  Controller helper object
-	* @param \phpbb\path_helper					$path_helper
-	* @param \phpbb\cache\service				$cache
-	* @param \phpbb\auth\auth 					$auth
-	* @param phpbb\language\language			$language
+	* @param config				$config				Config object
+	* @param template			$template			Template object
+	* @param driver_interface	$db					Database object
+	* @param helper				$controller_helper  Controller helper object
+	* @param path_helper		$path_helper		phpBB&nbsp;helper
+	* @param service			$cache				Cache object
+	* @param auth 				$auth				Auth object
+	* @param language			$language			Language object
+	*
 	* @access public
 	*/
-	public function __construct(\phpbb\config\config $config, \phpbb\template\template $template, \phpbb\db\driver\driver_interface $db, \phpbb\controller\helper $helper, \phpbb\path_helper $path_helper, \phpbb\cache\service $cache, \phpbb\auth\auth $auth, \phpbb\language\language $language)
+	public function __construct(config $config, template $template, driver_interface $db, helper $helper, path_helper $path_helper, service $cache, auth $auth, language $language)
 	{
 		$this->config		= $config;
 		$this->template		= $template;
@@ -83,12 +93,13 @@ class main_controller implements main_interface
 			if (($this->config['userranks_special'] || ($this->config['userranks_special_admin'] && $this->auth->acl_get('a_'))) || (!$this->config['userranks_special'] && !$row['rank_special']))
 			{
 				$rank_row = array(
-					'S_RANK_IMAGE'		=> ($row['rank_image']) ? true : false,
-					'S_SPECIAL_RANK'	=> ($row['rank_special']) ? true : false,
+					'MIN_POSTS'			=> $row['rank_min'],
 
 					'RANK_IMAGE'		=> $this->path_helper->get_web_root_path() . $this->config['ranks_path'] . '/' . $row['rank_image'],
 					'RANK_TITLE'		=> $row['rank_title'],
-					'MIN_POSTS'			=> $row['rank_min'],
+
+					'S_RANK_IMAGE'		=> ($row['rank_image']) ? true : false,
+					'S_SPECIAL_RANK'	=> ($row['rank_special']) ? true : false,
 				);
 
 				$this->template->assign_block_vars('ranks', $rank_row);
@@ -120,8 +131,8 @@ class main_controller implements main_interface
 
 		// Assign breadcrumb template vars for the user ranks page
 		$this->template->assign_block_vars('navlinks', array(
-			'U_VIEW_FORUM'	=> $this->helper->route('david63_userranks_main_controller', array('name' => 'ranks')),
 			'FORUM_NAME'	=> $this->language->lang('USER_RANKS'),
+			'U_VIEW_FORUM'	=> $this->helper->route('david63_userranks_main_controller', array('name' => 'ranks')),
 		));
 
 		$this->template->assign_var('USER_RANKS_VERSION', ext::USER_RANKS_VERSION);
@@ -164,7 +175,7 @@ class main_controller implements main_interface
 						{
 							if ($row['user_posts'] >= $rank['rank_min'])
 							{
-								$row['user_rank'] = $rank['rank_id'];
+								$row['user_rank'] 			= $rank['rank_id'];
 								$rank_data[$row['user_id']] = $row;
 								break;
 							}

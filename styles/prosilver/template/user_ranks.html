@@ -1,11 +1,8 @@
 {% include 'overall_header.html' %}
 {% INCLUDECSS '@david63_userranks/user_ranks.css' %}
 
-{% if S_USER_RANKS_LINK_ENABLED and S_USER_LOGGED_IN and not S_IS_BOT %}
+{% if S_USER_RANKS_LINK_ENABLED or S_USER_RANKS_QUICK_LINK_ENABLED and S_USER_LOGGED_IN and not S_IS_BOT %}
 	<h2>{{ lang('USER_RANKS') }}</h2>
-	<span class="version_name">{{ lang('VERSION') }}{{ lang('COLON') }}</span><span class="version">{USER_RANKS_VERSION}</span>
-	<br /><br />
-
 	<div class="forabg responsive-hide">
 		<div class="inner">
 			<ul class="topiclist">
@@ -16,7 +13,7 @@
 							<div class="rank-title">{{ lang('RANK_TITLE') }}</div>
 							<div class="rank-minimum">{{ lang('RANK_MINIMUM') }}</div>
 							{% if U_USER_RANKS_MEMBERS %}
-								<div class="rank-members">{{ lang('RANK_MEMBERS') }}</div>
+								<div class="rank-members">{{ lang('RANK_MEMBERS') }}<img style="float: {{ S_CONTENT_FLOW_END }};" src="https://img.shields.io/badge/{{ lang('VERSION') }}-{{ USER_RANKS_VERSION }}-orange.svg?style=plastic" /></div>
 							{% endif %}
 						</dt>
 					</dl>
@@ -27,13 +24,13 @@
 				{% for rank in ranks %}
 					<li class="row{% if rank.S_ROW_COUNT is even %} bg1{% else %} bg2{% endif %}">
 						<dl class="row-item">
-							<dd class="rank-image">{% if rank.S_RANK_IMAGE %}<img src="{rank.RANK_IMAGE}" alt="{rank.RANK_TITLE}" title="{rank.RANK_TITLE}" />{% else %}{{ lang('NO_RANK_DATA') }}{% endif %}</dd>
-							<dd class="rank-title">{rank.RANK_TITLE}</dd>
-							<dd class="rank-minimum">{% if rank.S_SPECIAL_RANK %}{{ lang('NO_RANK_DATA') }}{% else %}{rank.MIN_POSTS}{% endif %}</dd>
+							<dd class="rank-image">{% if rank.S_RANK_IMAGE %}<img src="{{ rank.RANK_IMAGE }}" alt="{{ rank.RANK_TITLE }}" title="{{ rank.RANK_TITLE }}" />{% else %}{{ lang('NO_RANK_DATA') }}{% endif %}</dd>
+							<dd class="rank-title">{{ rank.RANK_TITLE }}</dd>
+							<dd class="rank-minimum">{% if rank.S_SPECIAL_RANK %}{{ lang('NO_RANK_DATA') }}{% else %}{{ rank.MIN_POSTS }}{% endif %}</dd>
 							{% if U_USER_RANKS_MEMBERS %}
 								<dd class="rank-members">
 									{% for member in rank.rank_member %}
-										{member.MEMBERS}{% if not member.S_LAST_ROW %}{{ lang('COMMA_SEPARATOR') }}{% endif %}
+										{{ member.MEMBERS }}{% if not member.S_LAST_ROW %}{{ lang('COMMA_SEPARATOR') }}{% endif %}
 									{% endfor %}
 								</dd>
 							{% endif %}
@@ -47,7 +44,7 @@
 	<div class="panel" id="message">
 		<div class="inner">
 			<h2 class="message-title">{{ lang('INFORMATION') }}</h2>
-			<p>{{ lang('NOT_AUTHORISED') }}<br /><br /><a href="{ROOT_PATH}index.php">{{ lang('RETURN_TO_INDEX') }}</a></p>
+			<p>{{ lang('NOT_AUTHORISED') }}<br /><br /><a href="{{ ROOT_PATH }}index.php">{{ lang('RETURN_TO_INDEX') }}</a></p>
 		</div>
 	</div>
 {% endif %}

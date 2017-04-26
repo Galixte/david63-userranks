@@ -3,21 +3,21 @@
 *
 * @package User Ranks Extension
 * @copyright (c) 2015 david63
-* @license http://opensource.org/licenses/gpl-2.0.php GNU General Public License v2
+* @license GNU General Public License, version 2 (GPL-2.0)
 *
 */
 
 namespace david63\userranks\controller;
 
-use \phpbb\config\config;
-use \phpbb\template\template;
-use \phpbb\db\driver\driver_interface;
-use \phpbb\controller\helper;
-use \phpbb\path_helper;
-use \phpbb\cache\service;
-use \phpbb\auth\auth;
-use \phpbb\language\language;
-use \david63\userranks\ext;
+use phpbb\config\config;
+use phpbb\template\template;
+use phpbb\db\driver\driver_interface;
+use phpbb\controller\helper;
+use phpbb\path_helper;
+use phpbb\cache\service;
+use phpbb\auth\auth;
+use phpbb\language\language;
+use david63\userranks\ext;
 
 /**
 * Main controller

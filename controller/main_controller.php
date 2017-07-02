@@ -9,15 +9,15 @@
 
 namespace david63\userranks\controller;
 
-use phpbb\config\config;
-use phpbb\template\template;
-use phpbb\db\driver\driver_interface;
-use phpbb\controller\helper;
-use phpbb\path_helper;
-use phpbb\cache\service;
-use phpbb\auth\auth;
-use phpbb\language\language;
-use david63\userranks\ext;
+use \phpbb\config\config;
+use \phpbb\template\template;
+use \phpbb\db\driver\driver_interface;
+use \phpbb\controller\helper;
+use \phpbb\path_helper;
+use \phpbb\cache\service;
+use \phpbb\auth\auth;
+use \phpbb\language\language;
+use \david63\userranks\ext;
 
 /**
 * Main controller

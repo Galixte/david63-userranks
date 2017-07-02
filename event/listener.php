@@ -13,10 +13,10 @@ namespace david63\userranks\event;
 * @ignore
 */
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
-use phpbb\config\config;
-use phpbb\template\template;
-use phpbb\controller\helper;
-use phpbb\auth\auth;
+use \phpbb\config\config;
+use \phpbb\template\template;
+use \phpbb\controller\helper;
+use \phpbb\auth\auth;
 
 /**
 * Event listener

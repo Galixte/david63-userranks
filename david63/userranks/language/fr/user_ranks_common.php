@@ -47,7 +47,7 @@ $lang = array_merge($lang, array(
 	'RANK_MINIMUM'		=> 'Nombre de messages',
 
 	'USER_RANKS'		=> 'Rangs',
-	//'USER_RANKS_LOG'	=> '<strong>Les paramètres des rangs des utilisateurs ont été mis à jour.</strong>',
+
 	'USER_RANKS_TITLE'	=> 'Liste des rangs des utilisateurs',
 
 	'RANK_TITLE'		=> 'Titre',
